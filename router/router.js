@@ -24,4 +24,31 @@ router.get("/:id", (req,res,next)=>{
         }    
     })
 })
+
+// patch
+router.get("/patch/:id", (req,res)=>{
+    const id = req.params.id;
+    res.status(200).json({
+        message: "Using patch",
+        id: id,
+        metadata: {
+            hostname: req.hostname,
+            method: req.method,
+        },
+    });
+});
+// post
+router.get("/post", (req,res)=>{
+    res.status(200).json({
+        message: "Using Post status 201",
+    });
+});
+// delete
+router.get("/delete/:id", (req,res)=>{
+    const id = req.params.id;
+    res.status(200).json({
+        message: `deleted user ${id}`,
+    });
+});
+
 module.exports = router;
